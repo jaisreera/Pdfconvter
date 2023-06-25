@@ -31,7 +31,7 @@ app.set('views','./views');
 
 // Configure the session middleware
 app.use(session({
-    secret: process.env.EXPRESS_SESSION_KEY,
+    secret:"95c6d8588eb5ee54ab8f5bfe931b67d8c188a06a00z30zz",
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
