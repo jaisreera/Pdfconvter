@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+
 mongoose.set('strictQuery', false);
-mongoose.connect("mongodb+srv://8479946428ll:DXRbR7XopJl2UaPS@googleaouth.ghogaxx.mongodb.net/?retryWrites=true&w=majority");
+
+mongoose.connect("mongodb+srv://8479946428ll:DXRbR7XopJl2UaPS@googleaouth.ghogaxx.mongodb.net/Googleaouth?retryWrites=true&w=majority");
 
 const db = mongoose.connection;
 
