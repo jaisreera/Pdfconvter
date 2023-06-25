@@ -35,7 +35,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI, 
+        mongoUrl: "mongodb+srv://8479946428ll:DXRbR7XopJl2UaPS@googleaouth.ghogaxx.mongodb.net/Googleaouth?retryWrites=true&w=majority",
         autoRemove: 'native', // remove expired sessions automatically
         ttl: 7 * 24 * 60 * 60 // set session TTL to 7 days
       })
@@ -69,7 +69,7 @@ app.use('/',require('./routes'));
 //listen on PORT
 app.listen(PORT, function(err){
     if(err){
-        console.log('Error in running the server: ',err)
+        console.log('Error in running the server: ',PORT)
     }
     else{
         
