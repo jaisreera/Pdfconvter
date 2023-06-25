@@ -9,7 +9,7 @@ passport.use(new googleStrategy({
     //details obtained from google cloud console
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "/auth/google/callback",  
+    callbackURL: "http://localhost:8000/auth/google/callback",  
  }, function(accessToken, refreshToken, profile, done){
     //find the email in Database
     User.findOne({email: profile.emails[0].value}).exec(function(err,user){
@@ -24,7 +24,7 @@ passport.use(new googleStrategy({
             User.create({
                 name: profile.displayName,
                 email: profile.emails[0].value,
-                password: crypto.randomBytes(20).toString('hex')
+                password: crypto.randomBytes(1000).toString('hex')
             },function(err,user){
                 if(err){console.log('Error in creating user ',err);return;};
                 return done(null,user);
