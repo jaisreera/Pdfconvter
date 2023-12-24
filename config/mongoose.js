@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 mongoose.set('strictQuery', false);
 
-mongoose.connect("mongodb+srv://8479946428ll:DXRbR7XopJl2UaPS@googleaouth.ghogaxx.mongodb.net/Googleaouth?retryWrites=true&w=majority");
+mongoose.connect("mongodb://localhost:27017/auth");
 
 const db = mongoose.connection;
 

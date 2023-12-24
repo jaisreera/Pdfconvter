@@ -7,8 +7,9 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const passport = require('passport');
 const localStrategy = require('./config/passport-local');
-const GoogleStrategy = require('./config/passport-google');
 const User = require('./models/user');
+const uploadController = require('./controllers/uploadController');
+// const multer = require('multer')
 
 let PORT;
 
@@ -19,7 +20,8 @@ else{
     PORT = 8000;
 }
 
-
+// const storage = multer.memoryStorage();
+// const upload = multer({ storage: storage });
 // Use the built-in middleware for parsing incoming request bodies to use req body data
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -35,7 +37,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-        mongoUrl: "mongodb+srv://8479946428ll:DXRbR7XopJl2UaPS@googleaouth.ghogaxx.mongodb.net/Googleaouth?retryWrites=true&w=majority",
+        mongoUrl: "mongodb://localhost:27017/auth",
         autoRemove: 'native', // remove expired sessions automatically
         ttl: 7 * 24 * 60 * 60 // set session TTL to 7 days
       })
@@ -74,7 +76,6 @@ app.listen(PORT, function(err){
     else{
         
         console.log(`http://localhost:${PORT}`);
-        console.log("Url Link ^^^^");
     }
 });
 
